@@ -2,11 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+@layer base {
+  html,
+  body {
+    @apply bg-offwhite dark:bg-charcoal text-graphite dark:text-silver;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+    @media (prefers-color-scheme: dark) {
+      color-scheme: dark;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-charcoal dark:text-offwhite font-semibold;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none shadow-focus rounded-sm;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply px-4 py-2 rounded-md transition-all duration-200 font-medium;
+  }
+
+  .btn-primary {
+    @apply bg-amber text-white hover:bg-amber-dark hover:shadow-interactive;
+  }
+
+  .btn-secondary {
+    @apply bg-steel text-graphite border border-steel hover:bg-opacity-80 hover:shadow-interactive;
+  }
+
+  .btn-tertiary {
+    @apply bg-transparent text-graphite hover:text-amber;
+  }
+
+  .btn-icon {
+    @apply p-2 rounded-full bg-transparent text-silver hover:text-amber hover:bg-steel hover:bg-opacity-30;
+  }
+
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed shadow-none;
+  }
+
+  /* Input fields */
+  .input {
+    @apply bg-offwhite border border-steel rounded-md px-3 py-2 w-full text-graphite placeholder-silver focus:border-amber focus:shadow-focus;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-offwhite dark:bg-charcoal rounded-lg shadow-card p-4;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-success bg-opacity-20 text-success;
+  }
+
+  .badge-warning {
+    @apply bg-warning bg-opacity-20 text-warning;
+  }
+
+  .badge-info {
+    @apply bg-silver bg-opacity-20 text-silver;
   }
 }
