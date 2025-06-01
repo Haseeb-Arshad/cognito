@@ -1,17 +1,17 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import Sidebar from "./Sidebar";
+import AppSidebar from "./AppSidebar";
 
-interface LayoutProps {
+interface AppLayoutProps {
   children: ReactNode;
   title?: string;
 }
 
-export default function Layout({ children, title }: LayoutProps) {
+export default function AppLayout({ children, title }: AppLayoutProps) {
   return (
-    <div className="flex h-screen bg-offwhite dark:bg-charcoal">
+    <div className="flex min-h-screen bg-offwhite dark:bg-charcoal">
       {/* Sidebar */}
-      <Sidebar />
+      <AppSidebar />
       
       {/* Main Content */}
       <main className="flex-1 ml-64 overflow-auto">

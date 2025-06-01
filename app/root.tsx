@@ -4,11 +4,14 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "@remix-run/react";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { AnimatePresence } from "framer-motion";
 
 import "./tailwind.css";
 import AppLayout from "./components/Layout";
+import PageTransition from "./components/animations/PageTransition";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -49,9 +52,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const location = useLocation();
+  
   return (
-    <AppLayout>
-      <Outlet />
-    </AppLayout>
+    <AnimatePresence mode="wait" initial={false}>
+      <PageTransition location={location.pathname} key={location.pathname}>
+        <Outlet />
+      </PageTransition>
+    </AnimatePresence>
   );
 }
