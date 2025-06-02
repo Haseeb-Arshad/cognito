@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import InternalSidebar from "~/components/InternalSidebar";
 
 /**
- * This is the main application shell for all authenticated routes
- * It provides the sidebar navigation and layout structure
- * All authenticated routes will be nested under this layout
+ * This is the root layout for all authenticated/internal application pages
+ * It provides the persistent sidebar navigation and layout structure
+ * All internal routes will be nested under this layout
  */
-export default function AppLayout() {
+export default function AppRoot() {
   return (
     <div className="flex h-screen bg-offwhite dark:bg-charcoal">
       {/* Sidebar - fixed position */}

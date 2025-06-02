@@ -27,7 +27,7 @@ export async function loader() {
   
   // If user is already logged in, redirect to dashboard
   if (isAuthenticated) {
-    return redirect("/dashboard");
+    return redirect("/app/dashboard");
   }
   
   return json({});
@@ -93,7 +93,7 @@ export default function Index() {
     const checkAuth = () => {
       const hasSession = localStorage.getItem("cognito_session");
       if (hasSession) {
-        navigate("/dashboard");
+        navigate("/app/dashboard");
       }
     };
     

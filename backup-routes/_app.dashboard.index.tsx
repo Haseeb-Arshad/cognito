@@ -30,7 +30,7 @@ ChartJS.register(
   Filler
 );
 
-// Dashboard index component - rendered inside dashboard.tsx layout
+// Dashboard index component - rendered inside _app.dashboard.tsx layout
 export default function DashboardIndex() {
   const [isCustomizing, setIsCustomizing] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -174,7 +174,7 @@ export default function DashboardIndex() {
   // Loading state with skeleton UI
   if (isLoading) {
     return (
-      <div className="container mx-auto">
+      <div>
         {/* Skeleton for metrics */}
         <div className="flex justify-between items-center mb-6">
           <div className="h-8 w-40 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
@@ -230,10 +230,9 @@ export default function DashboardIndex() {
   }
   
   return (
-    <div className="container mx-auto">
+    <div>
       {/* Header with title and actions */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-charcoal dark:text-offwhite">Dashboard</h1>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
